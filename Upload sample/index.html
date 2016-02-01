@@ -1,0 +1,20 @@
+<form id="myuploadform" action="./upload.php"  method="POST" enctype="multipart/form-data" style="text-align:center;">
+            
+             		<input type="hidden" id="WporderID" name="WporderID" value="{{myclaimedproject[myclaimed].WpTransactionID}}"/>
+             		<input type="hidden" id="ClientName" name="ClientName" value="{{myclaimedproject[myclaimed].Client}}"/>
+             		<input type="hidden" id="MyWpwriter" name="MyWpwriter" value="<?php echo $_SESSION['username']; ?>"/>
+  
+        		<div class="fileupload fileupload-new" data-provides="fileupload">
+        			
+        			
+        			
+    				<span class="btn btn-primary btn-file" id="mainupbut" ng-class="{'myuploadblock': myclaimedproject[myclaimed].ThisOrderStatus=='Rejected' || myclaimedproject[myclaimed].ThisOrderStatus=='Timeout'}" ><span class="fileupload-new" >Select file</span>
+    				<span class="fileupload-exists">Change</span>         <input ng-disabled="myclaimedproject[myclaimed].ThisOrderStatus=='Rejected' || myclaimedproject[myclaimed].ThisOrderStatus=='Timeout' || myclaimedproject[myclaimed].ThisOrderStatus=='ResubmitTimeup'" type="file" name="doc" id="myuploadeddoc" /></span>
+    				<span class="fileupload-preview"></span>
+    				<a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a><br><br>
+            			<button class="btn btn-info" ng-class="{'btn-danger': myclaimedproject[myclaimed].ThisOrderStatus=='Rejected' || myclaimedproject[myclaimed].ThisOrderStatus=='Timeout'}" ng-disabled="myclaimedproject[myclaimed].ThisOrderStatus=='Rejected' || myclaimedproject[myclaimed].ThisOrderStatus=='Timeout' || myclaimedproject[myclaimed].ThisOrderStatus=='ResubmitTimeup'" type="button"  id="myuploadbutton"  >Upload File <i class="glyphicon glyphicon-refresh" id="gly-spin"></i></button>
+            			<p id="docemptywarning" style="color:red; display:none;">No file selected to upload.</p>
+            			<p id="docformatwarning" style="color:red; display:none;">Please upload a pdf, doc or docx file.</p>
+  			</div>
+  
+ 		    </form>
