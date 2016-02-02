@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+ 
+      
+        <link rel="stylesheet" type="text/css" href="writersHomepage.css">
+
+
+     
+        <meta charset="utf-8"/>
+
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="lib/bootstrap.min.css">
+  <script src="lib/jquery.min.js"></script>
+  <script src="lib/bootstrap.min.js"></script>
+        <script src = "writerHomepage_jquery-1.11.1.js"></script>
+        
+        
+
+        
+        
+    
+    
+        <title>Writer- White Panda</title>
+        
+        
+        
+    </head>
+    
+    <body>
+        
+ 
+        
+   
+        
+    
+        
+        <div class="container writer_main">
+            
+            
+           
+<!--            <img id="arrow_writer" src="images/arrowWriter.png"/>-->
+            <div class="writer_tab" >
+                <ul >
+                    <a data-toggle="tab" href="#jobSearch"><li id="job_search" >Job Search</li></a>
+                    <a data-toggle="tab" href="#notification"><li >Notification</li></a>
+                    <a data-toggle="tab" href="#myProfile"><li id="my_prof">My Profile</li></a>
+                    <a data-toggle="tab" href="#incompleteOrders"><li id="incomp_ord">Claimed Projects</li></a>
+                    <a data-toggle="tab" href="#mypayment"><li id="payment">Payment</li></a>
+<!--                    <a href="#"><li id="comp_ord">Completed Orders</li></a>-->
+<!--                    <a href="#"><li id="payment">Payment</li></a>-->
+                </ul>
+            </div>
+            
+            <div ng-app="myApp" ng-controller="writerdatabase" class='tab-content tab_result' style="font-family:'Open Sans'">
+              
+      
+                
+                
+                <div id="contentDescriptions{{$index}}" class="tab-pane fade in active jobDetails" >
+                    <br>
+                    <a data-toggle="tab" href="#jobSearch" style="float:left; font-size:16px; text-decoration:none; color:#2eb161;"><span class="glyphicon glyphicon-chevron-left"></span>Take me back</a>
+                    <br><br>
+                     <table class="table" >
+                        <thead>
+                            <tr style="font-size:18px;color:#2eb161;">
+                                <h3 style="color:#2eb161;">Topic: &nbsp; {{myfeeds[selectedTab].Topic}}</h3>
+       
+                            </tr>
+                         </thead>
+                         <tbody style="color:black;">
+                             <tr class="success">
+                                 <td>Catagory</td>
+                                 <td>{{myfeeds[selectedTab].Ordertype}}</td>
+                             </tr>
+                             <tr class="success">
+                                 <td>No. of Posts</td>
+                                 <td>{{myfeeds[selectedTab].NoOfPosts}}</td>
+                             </tr>
+                             <tr class="success">
+                                 <td>Industry of experience</td>
+                                 <td>{{myfeeds[selectedTab].Industry}}</td>
+                             </tr>
+                             <tr class="success">
+                                 <td>Stipend</td>
+                                 <td>{{myfeeds[selectedTab].Budget}} ₹</td>
+                             </tr>
+                             <tr class="success">
+                                 <td>Goal</td>
+                                 <td>{{myfeeds[selectedTab].Goal}}</td>
+                             </tr>
+                             <tr class="success">
+                                 <td>Style of writing</td>
+                                 <td>{{myfeeds[selectedTab].Styleofwriting}}</td>
+                             </tr>
+                             <tr class="success">
+                                 <td>Content Sample</td>
+                                 <td>{{myfeeds[selectedTab].ContentSample}}</td>
+                             </tr>
+                             <tr class="success">
+                                 <td>Point of View</td>
+                                 <td>{{myfeeds[selectedTab].Pointofview}}</td>
+                             </tr>
+                             <tr class="success">
+                                 <td>Content Structure</td>
+                                 <td>{{myfeeds[selectedTab].ContentStructure}}</td>
+                             </tr>
+                             <tr class="success">
+                                 <td>Target audience</td>
+                                 <td>{{myfeeds[selectedTab].TargetAudience}}</td>
+                             </tr>
+                             <tr class="success">
+                                 <td>Keypoints</td>
+                                 <td>{{myfeeds[selectedTab].Keypoints}}</td>
+                             </tr>
+                             <tr class="success">
+                                 <td>Things to avoid</td>
+                                 <td>{{myfeeds[selectedTab].Thingstoavoid}}</td>
+                             </tr>
+                             <tr class="success">
+                                 <td>Keywords</td>
+                                 <td>{{myfeeds[selectedTab].Keywords}}</td>
+                             </tr>
+                             <tr class="success">
+                                 <td>Special Instructions</td>
+                                 <td>{{myfeeds[selectedTab].SpecialInstructions}}</td>
+                                 
+                             </tr>
+                         </tbody>
+                    </table>
+                    
+                    <form method="post" action="../php/databaseCall/claimProject.php" >
+                        
+                        <input type="hidden" name="orderID" value="{{myfeeds[selectedTab].WpTransactionID}}"/>
+                        <input type="hidden" name="username" value="<?php echo $_SESSION['username']; ?>"/>
+                        <input type="hidden" name="OrderedDate" value="{{myfeeds[selectedTab].OrderedDate}}"/>
+                        <button type="submit" class="btn btn-info btn-lg" style="background:#2eb161; float:right;">Claim Project</button>
+                    </form>
+                </div>
+                
+             
+            </div>
+
+
+        </div>
+        
+    </body>
+</html>

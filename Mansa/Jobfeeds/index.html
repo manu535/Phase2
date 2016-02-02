@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+ 
+      
+        <link rel="stylesheet" type="text/css" href="writersHomepage.css">
+
+
+     
+        <meta charset="utf-8"/>
+
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="lib/bootstrap.min.css">
+  <script src="lib/jquery.min.js"></script>
+  <script src="lib/bootstrap.min.js"></script>
+        <script src = "writerHomepage_jquery-1.11.1.js"></script>
+        
+        
+
+        
+        
+    
+    
+        <title>Writer- White Panda</title>
+        
+        
+        
+    </head>
+    
+    <body>
+        
+ 
+        
+   
+        
+    
+        
+        <div class="container writer_main">
+            
+            
+           
+<!--            <img id="arrow_writer" src="images/arrowWriter.png"/>-->
+            <div class="writer_tab" >
+                <ul >
+                    <a data-toggle="tab" href="#jobSearch"><li id="job_search" >Job Search</li></a>
+                    <a data-toggle="tab" href="#notification"><li >Notification</li></a>
+                    <a data-toggle="tab" href="#myProfile"><li id="my_prof">My Profile</li></a>
+                    <a data-toggle="tab" href="#incompleteOrders"><li id="incomp_ord">Claimed Projects</li></a>
+                    <a data-toggle="tab" href="#mypayment"><li id="payment">Payment</li></a>
+<!--                    <a href="#"><li id="comp_ord">Completed Orders</li></a>-->
+<!--                    <a href="#"><li id="payment">Payment</li></a>-->
+                </ul>
+            </div>
+            
+            <div ng-app="myApp" ng-controller="writerdatabase" class='tab-content tab_result' style="font-family:'Open Sans'">
+              
+                
+                <div  id="jobSearch" class='tab-pane fade in active job'>
+                    <br><br>
+                 
+                    
+                    <div >
+                       
+                        <a data-toggle="tab" href=".jobDetails" ng-click="selectTab($index)"><span class="feeds"><h4>{{x.Ordertype}}</h4><h3>Topic: {{x.Topic}}<span id="time">Due in 18 hours</span></h3><h4><span style='font-size:17px;'>Area: {{x.Industry}}</span><span id="time" style='font-size:17px;'>Stipend: {{x.Budget}} ₹</span></h4></span></a>
+                        
+                    </div>
+                   
+                    
+                    <br/><br/><br/><br/>
+                
+                    
+                    
+                    
+                    
+                </div>
+              
+             
+                
+             
+                
+            </div>
+
+
+        </div>
+            
+
+    </body>
+</html>
